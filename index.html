@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viewer</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f0db;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nftItem {
+        border: 1px solid #e6a157;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        background-color: #ffffff;
+      }
+
+      .nftName {
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 20px;
+        color: #b35806;
+      }
+
+      .nftAddress {
+        margin: 0;
+        margin-bottom: 10px;
+        color: #b35806;
+      }
+
+      .nftImage {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      ul {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        width: 100%;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      img.nft-image {
+        border-radius: 10px;
+        width: 250px;
+      }
+
+      form {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      }
+
+      select {
+        padding: 10px;
+        border: 1px solid #e6a157;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #b35806;
+      }
+    </style>
+  </head>
+  <body>
+    <template id="nftItemTemplate">
+      <li class="nftItem">
+        <slot name="nft-name"></slot>
+        <slot name="nft-address"></slot>
+        <div>
+          <slot name="nft-image"></slot>
+        </div>
+      </li>
+    </template>
+    <header>
+      <form id="nftForm">
+        <div>
+          <label for="networkSelect">Select Network:</label>
+          <select id="networkSelect">
+            <option value="klaytn">Klaytn</option>
+            <option value="mainnet">Mainnet</option>
+            <option value="polygon">Polygon</option>
+            <option value="binance">Binance</option>
+          </select>
+        </div>
+        <div>
+          <label for="ownerInput"></label>
+          <input
+            id="ownerInput"
+            type="text"
+            value="0x45EB6D727FB8C1EB89284b65D336f2C6bcbA0f73"
+            class="owner-input"
+          />
+        </div>
+        <button type="submit">Show NFT</button>
+      </form>
+    </header>
+    <!-- NFT item template -->
+
+    <main>
+      <ul id="nftList">
+        <!-- Example of an NFT item -->
+        <nft-item>
+          <h2 slot="nft-name" class="nftName">nft-name slot</h2>
+          <p slot="nft-address" class="nftAddress">nft-address slot</p>
+          <img
+            class="nft-image"
+            slot="nft-image"
+            src="https://avatars.githubusercontent.com/u/3061056?s=400&u=f8dc38910de5f803a62f16f4d987610367575ac9&v=4"
+          />
+        </nft-item>
+      </ul>
+    </main>
+    <script src="viewer.js"></script>
+  </body>
+</html>
