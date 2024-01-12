@@ -1,5 +1,7 @@
 # nft html template
 
+gh page : https://ricepotato.github.io/nft-html-template/
+
 html template 사용 예제
 
 아래와 같이 &lt;template&gt; 안에 만들 template 코드를 작성한다.
